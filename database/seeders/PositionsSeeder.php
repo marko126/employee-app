@@ -39,22 +39,22 @@ class PositionsSeeder extends Seeder
             ],
             [
                 'id' => 1003,
-                'name' => 'Senior Backend Developer',
+                'name' => 'Backend Developer',
                 'parent_id' => 1002,
             ],
             [
                 'id' => 1004,
-                'name' => 'Senior Frontend Developer',
+                'name' => 'Backend Developer',
                 'parent_id' => 1002,
             ],
             [
                 'id' => 1005,
-                'name' => 'Junior Backend Developer',
+                'name' => 'Frontend Developer',
                 'parent_id' => 1002,
             ],
             [
                 'id' => 1006,
-                'name' => 'Junior Frontend Developer',
+                'name' => 'Frontend Developer',
                 'parent_id' => 1002,
             ],
             [

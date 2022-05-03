@@ -18,6 +18,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property Carbon $start_date
  * @property Carbon $end_date
  * @property-read EmployeePosition $position
+ * @property-read Employee $superior
  *
  * @mixin Builder
  *
@@ -38,5 +39,10 @@ class Employee extends Model
     public function position(): BelongsTo
     {
         return $this->belongsTo(EmployeePosition::class, 'position_id');
+    }
+
+    public function getSuperiorAttribute(): ?Employee
+    {
+        return $this->position->parent?->employee;
     }
 }
