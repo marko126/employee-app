@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -17,6 +18,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property Carbon $start_date
  * @property Carbon $end_date
  * @property-read EmployeePosition $position
+ *
+ * @mixin Builder
  *
  * @package App\Models
  */
