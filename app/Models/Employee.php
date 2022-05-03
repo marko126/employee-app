@@ -28,6 +28,13 @@ class Employee extends Model
 {
     use HasFactory, SoftDeletes;
 
+    protected $fillable = [
+        'name',
+        'position_id',
+        'start_date',
+        'end_date',
+    ];
+
     protected $dates = [
         'start_date',
         'end_date',

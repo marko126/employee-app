@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\V1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\EmployeeRequest;
 use App\Http\Resources\EmployeeResource;
 use App\Models\Employee;
 use Illuminate\Database\Eloquent\Builder;
@@ -46,12 +47,14 @@ class EmployeeController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param EmployeeRequest $request
      * @return JsonResponse
      */
-    public function store(Request $request): JsonResponse
+    public function store(EmployeeRequest $request): JsonResponse
     {
-        return $this->respondCreated();
+        $employee = Employee::create($request->all());
+
+        return $this->respondCreated(new EmployeeResource($employee));
     }
 
     /**
@@ -79,13 +82,16 @@ class EmployeeController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
+     * @param EmployeeRequest $request
      * @param int $id
      * @return JsonResponse
      */
-    public function update(Request $request, int $id): JsonResponse
+    public function update(EmployeeRequest $request, int $id): JsonResponse
     {
-        return $this->respondUpdated();
+        $employee = Employee::findOrFail($id);
+        $employee->update($request->all());
+
+        return $this->respondUpdated(new EmployeeResource($employee));
     }
 
     /**
@@ -96,6 +102,9 @@ class EmployeeController extends Controller
      */
     public function destroy(int $id): JsonResponse
     {
+        $employee = Employee::findOrFail($id);
+        $employee->delete();
+
         return $this->respondDeleted();
     }
 }

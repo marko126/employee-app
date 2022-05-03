@@ -57,8 +57,8 @@ class Controller extends BaseController
      *
      */
     public function respondCreated(
-        string $message = 'Created',
-        Responsable|array|JsonSerializable $data = []
+        Responsable|array|JsonSerializable $data = [],
+        string $message = 'Created'
     ): JsonResponse
     {
         $responseData = [
@@ -76,8 +76,8 @@ class Controller extends BaseController
      * Respond with Updated.
      */
     public function respondUpdated(
-        string $message = 'Updated',
-        Responsable|array|JsonSerializable $data = []
+        Responsable|array|JsonSerializable $data = [],
+        string $message = 'Updated'
     ): JsonResponse
     {
         $responseData = [
@@ -95,11 +95,11 @@ class Controller extends BaseController
      * Respond with Deleted.
      */
     public function respondDeleted(
-        string $message = 'Deleted',
-        Responsable|array|JsonSerializable $data = []
+        Responsable|array|JsonSerializable $data = [],
+        string $message = 'Deleted'
     ): JsonResponse
     {
-        return $this->respondUpdated($message, $data);
+        return $this->respondUpdated($data, $message);
     }
 
     /**
