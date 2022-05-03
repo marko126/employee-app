@@ -20,6 +20,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property-read EmployeePosition $parent
  * @property-read Employee $employee
  * @property-read Collection|EmployeePosition[] $children
+ * @property-read Collection|Employee[] $subordinates
  *
  * @mixin Builder
  *

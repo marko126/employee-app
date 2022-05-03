@@ -34,6 +34,9 @@ class EmployeeResource extends JsonResource
             'superior' => $this->whenAppended('superior', function () {
                 return $this->superior ? new EmployeeResource($this->superior) : null;
             }),
+            'subordinates' => $this->whenAppended('subordinates', function () {
+                return $this->subordinates ? EmployeeResource::collection($this->subordinates) : null;
+            }),
         ];
     }
 }
