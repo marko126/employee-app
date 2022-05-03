@@ -32,6 +32,11 @@ class EmployeePosition extends Model
 
     protected $table = 'employees_positions';
 
+    protected $fillable = [
+        'name',
+        'parent_id',
+    ];
+
     /**
      * Position can have parent position
      */
